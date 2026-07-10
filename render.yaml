@@ -12,14 +12,6 @@ services:
       - key: APP_DEBUG
         value: false
       - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
-        fromEnv: MYSQL_HOST
-      - key: DB_PORT
-        value: "3306"
-      - key: DB_DATABASE
-        fromEnv: MYSQL_DATABASE
-      - key: DB_USERNAME
-        fromEnv: MYSQL_USER
-      - key: DB_PASSWORD
-        fromEnv: MYSQL_PASSWORD
+        value: pgsql
+      - key: DB_URL
+        fromEnv: DATABASE_URL
