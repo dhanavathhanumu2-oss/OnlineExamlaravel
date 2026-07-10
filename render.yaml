@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: online-exam
+    runtime: php
+    buildCommand: composer install --no-dev
+    startCommand: php artisan migrate --seed && php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_KEY
+        value: base64:bb4n1K5ksFk99mIKPTSGknwZiMzumKHdfEN4oT1oEKA=
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        fromEnv: MYSQL_HOST
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_DATABASE
+        fromEnv: MYSQL_DATABASE
+      - key: DB_USERNAME
+        fromEnv: MYSQL_USER
+      - key: DB_PASSWORD
+        fromEnv: MYSQL_PASSWORD
