@@ -16,6 +16,9 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'options' => array_merge(
+                defined('MYSQL_ATTR_SSL_CA') ? [PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA')] : []
+            ),
         ],
     ],
     'migrations' => 'migrations',
